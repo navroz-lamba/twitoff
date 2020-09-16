@@ -21,18 +21,24 @@ auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET)
 api = API(auth)
 print("API CLIENT", api)
 
-user = api.get_user('elonmusk')
-print("TWITTER USER:", type(user))
-print(user.id)
-print(user.screen_name)
-print(user.name)
+if __name__ == "__main__":
 
-tweets = api.user_timeline('elonmusk', tweet_mode='extended')
-print("TWEETS", type(tweets))
-print(type(tweets[0]))
 
-tweet = tweets[0]
-print(tweet.id)
-print(tweet.full_text)
+    user = api.get_user('elonmusk')
+    print("TWITTER USER:", type(user))
+    print(user.id)
+    print(user.screen_name)
+    print(user.name)
 
-breakpoint()
+    tweets = api.user_timeline('elonmusk', tweet_mode='extended')
+    print("TWEETS", type(tweets))
+    print(type(tweets[0]))
+
+    tweet = tweets[0]
+    print(tweet.id)
+    print(tweet.full_text)
+
+    breakpoint()
+
+    tweets = api.user_timeline('elonmusk', tweet_mode="extended", count=150)
+    print("TWEETS COUNT:", len(tweets))

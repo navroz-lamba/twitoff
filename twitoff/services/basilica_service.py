@@ -22,5 +22,5 @@ if __name__ == "__main__":
     embeddings = list(connection.embed_sentences(sentences))
     print(embeddings)
 
-    embedding = connection.embed_sentence('Hello World!')
-    breakpoint()
+    embedding = list(connection.embed_sentences('Hello World!'))
+    print(embedding)
